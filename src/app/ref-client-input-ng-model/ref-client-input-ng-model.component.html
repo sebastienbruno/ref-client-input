@@ -1,0 +1,19 @@
+<fieldset>
+    <span>Emetteur : </span>
+        <input appAppNumericInput type="text" id="emetIden" 
+            maxlength="12"
+            [ngModel]="value.emetIden" 
+            (ngModelChange)="onEmetIdenChange($event)"
+            (blur)="onTouch()"
+        >
+        /
+        <input appAppNumericInput type="text" if="actiIden"  
+            maxlength="12"
+            [ngModel]="value.actiIden" 
+            (ngModelChange)="onActiIdenChange($event)"
+            (blur)="onTouch()"
+        >
+</fieldset>
+<div *ngIf="ngControl.control?.invalid && ngControl.control?.touched">
+    Invalid {{ ngControl.control?.errors | json }}
+</div>
