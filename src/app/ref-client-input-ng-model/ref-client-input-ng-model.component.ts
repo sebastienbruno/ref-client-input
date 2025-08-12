@@ -1,4 +1,4 @@
-import { Component, EnvironmentInjector, forwardRef, inject, Injector, SkipSelf } from '@angular/core';
+import { Component, EnvironmentInjector, forwardRef, inject, Injector, OnInit, SkipSelf } from '@angular/core';
 import { CommonModule, JsonPipe } from '@angular/common';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
 import { RefClient } from '../ref-client.model';
@@ -19,7 +19,7 @@ import { NumericInputDirective } from '../numeric-input.directive';
     { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => RefClientInputNgModelComponent)}
   ]
 })
-export class RefClientInputNgModelComponent implements ControlValueAccessor {
+export class RefClientInputNgModelComponent implements ControlValueAccessor, OnInit {
 
   ngControl!: NgControl;
 

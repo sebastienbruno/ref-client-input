@@ -1,21 +1,17 @@
-<fieldset>
+<form [formGroup]="form">
     <span>Emetteur : </span>
         <input appAppNumericInput type="text" id="emetIden" 
             maxlength="12"
-            [disabled]="isDisabled"
-            [ngModel]="value.emetIden" 
-            (ngModelChange)="onEmetIdenChange($event)"
+            formControlName="emetIden" 
             (blur)="onTouch()"
         >
         /
         <input appAppNumericInput type="text" if="actiIden"  
             maxlength="12"
-            [disabled]="isDisabled"
-            [ngModel]="value.actiIden" 
-            (ngModelChange)="onActiIdenChange($event)"
+            formControlName="actiIden"
             (blur)="onTouch()"
         >
-</fieldset>
+</form>
 <div *ngIf="ngControl.control?.invalid && ngControl.control?.touched">
     Invalid {{ ngControl.control?.errors | json }}
 </div>

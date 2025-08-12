@@ -1,0 +1,39 @@
+<div>
+    <h1>With NgModel</h1>
+    <form [formGroup]="formGroupNgModel" (ngSubmit)="onSubmitFormGroupNgModel()">
+        <div>
+            <fieldset>
+                <label for="simpleInput">Simple input</label>
+                <input type="text" formControlName="simpleInput" />
+            </fieldset>
+            <app-ref-client-input-ng-model formControlName="refClient">
+            </app-ref-client-input-ng-model>
+        </div>
+        <button type="submit" [disabled]="formGroupNgModel.invalid">Valider</button>
+    </form>
+    <pre>
+        {{ formGroupNgModel.value | json}}
+        {{ formGroupNgModel.controls.simpleInput.errors | json }}
+        {{ formGroupNgModel.controls.refClient.errors | json }}
+    </pre>
+</div>
+
+<div>
+    <h1>With FormControl</h1>
+    <form [formGroup]="formGroupFormControl" (ngSubmit)="onSubmitFormGroupFormControl()">
+        <div>
+            <fieldset>
+                <label for="simpleInput">Simple input</label>
+                <input type="text" formControlName="simpleInput" />
+            </fieldset>
+            <app-ref-client-input-form-control formControlName="refClient">
+            </app-ref-client-input-form-control>
+        </div>
+        <button type="submit" [disabled]="formGroupFormControl.invalid">Valider</button>
+    </form>
+    <pre>
+        {{ formGroupFormControl.value | json}}
+        {{ formGroupFormControl.controls.simpleInput.errors | json }}
+        {{ formGroupFormControl.controls.refClient.errors | json }}
+    </pre>
+</div>
